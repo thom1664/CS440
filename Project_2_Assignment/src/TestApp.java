@@ -1,49 +1,63 @@
-class ThreadDemo extends Thread {
-    private Thread t;
-    private String threadName;
-    
-    ThreadDemo( String name) {
-       threadName = name;
-       System.out.println("Creating " +  threadName );
-    }
-    
-    public void run() {
-       System.out.println("Running " +  threadName );
-       try {
-          for(int i = 10; i > 0; i--) {
-             System.out.println("Thread: " + threadName + ", " + i);
-
-             Thread.sleep(50);
-          }
-       } catch (InterruptedException e) {
-          System.out.println("Thread " +  threadName + " interrupted.");
-       }
-       System.out.println("Thread " +  threadName + " exiting.");
-    }
-    
-    public void start () {
-       System.out.println("Starting " +  threadName );
-       if (t == null) {
-          t = new Thread (this, threadName);
-          t.start ();
-       }
-    }
- }
+class RunApp implements Runnable {
+   
+   private boolean destroyThread;
+   private Thread t;
+   private String threadName;
+   private long endTime;
  
- public class TestApp {
-    public static void main(String args[]) {
-        ThreadDemo T1 = new ThreadDemo( "Thread - 1");
-        T1.start();
-       
-        ThreadDemo T2 = new ThreadDemo( "Thread - 2 ");
-        T2.start();
+      RunApp(String name) {
+         threadName = name;
+         t = new Thread(this, threadName);
 
-        ThreadDemo T3 = new ThreadDemo( "Thread - 3 ");
-        T3.start();
-       
-        ThreadDemo T4 = new ThreadDemo( "Thread - 4 ");
-        T4.start();
+         System.out.println("Creating ..." +  name);
 
+         destroyThread = false;
+         t.start();
+      }
     
+      public void run() {
+         long destroyStart = System.nanoTime();
+         int i = 100000;
+         while (destroyThread) {
+            
+            i = i - 1;
+            System.out.println("Destroying..." + i);
+         
+         if (i == 0){
+            this.endTime = System.nanoTime();
+            long desThreadTime = (this.endTime - destroyStart)/1000000;
+         
+            System.out.println("Time to Destroy: " + desThreadTime + " ms");
+            break;
+         } 
+      }
+   }
+
+   public void stop() {
+      if (threadName.equals("100000")){
+         destroyThread = true;
+      }
+   }
+}
+
+
+ 
+public class TestApp {
+   public static void main(String args[]) {
+      System.out.println("- Application Start -");
+
+      int iteration = 100000;
+      long time1 = System.nanoTime();
+
+         for (int i = 1; i <= iteration; i++){
+            RunApp t1 = new RunApp(String.valueOf(i));
+            t1.stop();
+         }
+
+      long time2 = System.nanoTime();
+      long length = (time2 - time1)/iteration;
+      System.out.println("Time to Create: " + length + " ms");
+
+      System.out.println("- Application End -");
     }   
  }
