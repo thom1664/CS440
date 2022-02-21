@@ -1,45 +1,42 @@
-class NewThread2 implements Runnable {
-    
-    Thread t;
-
-    NewThread2() {
-        
-        t = new Thread(this, "Child Thread");
-        t.start();
-        
-    }
-
+class RunApp2 extends Thread {
+   
+     
     public void run() {
-        try{
-            for (int i = 5; i > 0; i--){
-                System.out.println("Child Thread: " + i);
-                
-                Thread.sleep(500);
-            }
-        } catch (InterruptedException e) {
-            System.out.println("Thread interrupted");
-        }
-        System.out.println("Destroying Child...");
     }
-
+ 
 }
+ 
+ 
+  
+ public class TestAppQ2 {
+    public static void main(String args[]) {
+       System.out.println("- Application Start -");
+        int mainThread = 100;
+        int childThreads = 1000;
+        long time1 = System.nanoTime();
+ 
+        for (int i = 1; i <= mainThread; i++){
+            RunApp2 parentThread = new RunApp2();
+            parentThread.start();
+            System.out.println("Creating Parent Thread - " + i);
 
-public class TestAppQ2 {
-    public static void main(String[] args) {
-
-        for (int j = 1; j < 500; j++) {
-            new NewThread2();
-        }
-        
-        try{
-            for (int i = 5; i > 0; i--){
-                System.out.println("Main Thread: " + i);
-                
-                Thread.sleep(500);
+            for (int j = 1; j <= childThreads; j++){
+                RunApp2 childThread = new RunApp2();
+                childThread.start();
+                System.out.println("Creating Child Thread - " + j);
+                childThread.stop();
+                System.out.println("Destroying Child Thread - " + j);
+                if (j == childThreads){
+                    parentThread.stop();
+                    System.out.println("Destorying Parent Thread - " + i);
+                }
             }
-        } catch (InterruptedException e) {
-            System.out.println("Thread interrupted");
         }
-        System.out.println("Destroying Main...");
-    }
-}
+ 
+       long time2 = System.nanoTime();
+       long length = (time2 - time1)/100000;
+       System.out.println("Time to Process: " + length + " ms.");
+ 
+       System.out.println("- Application End -");
+    }   
+ }
