@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import random;
+import java.util.Random;
 
 public class testApp{
     public static void main(String args[]){
@@ -9,7 +9,7 @@ public class testApp{
         System.out.println("Enter a seed value:");
         change1 = reader.nextLine();
         random.seed(change1);
-        random.random() = change1
+        random.random() = change1;
         Integer seedVal = Integer.valueOf(change1);
         System.out.println("Enter number of processes (2, 100):");
         change2 = reader.nextLine();
