@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class testApp{
     public static void main(String args[]){
-        String change1, change2, change3, change4, change5, change6;
+        String change1, change2java, change3, change4, change5, change6;
         Scanner reader = new Scanner(System.in);
 
         System.out.println("Enter a seed value:");
@@ -26,17 +26,17 @@ public class testApp{
 
         System.out.println("Your inputs included:");
         System.out.print(System.lineSeparator());
-        System.out.println("Seed value of"+ seedVal);
+        System.out.println("Seed value of "+ seedVal);
         System.out.print(System.lineSeparator());
-        System.out.println(processNum +"processes");
+        System.out.println(processNum +" processes");
         System.out.print(System.lineSeparator());
-        System.out.println("A last possible arrival time of"+ lastAT);
+        System.out.println("A last possible arrival time of "+ lastAT);
         System.out.print(System.lineSeparator());
-        System.out.println("A max burst time of"+ maxBT);
+        System.out.println("A max burst time of "+ maxBT);
         System.out.print(System.lineSeparator());
-        System.out.println("A quantum size of"+ QuantSize);
+        System.out.println("A quantum size of "+ QuantSize);
         System.out.print(System.lineSeparator());
-        System.out.println("A latency of"+ latency);
+        System.out.println("A latency of "+ latency);
     }
 
 }
