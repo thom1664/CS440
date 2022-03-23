@@ -1,4 +1,6 @@
-class SJF1{
+import java.util.*;
+
+class SJF{
     public static void main(String args[]){
     int burst_time[],process[],waiting_time[],tat[],i,j,n,total=0,pos,temp;
     float wait_avg,TAT_avg;
@@ -18,6 +20,7 @@ class SJF1{
         System.out.print("\nProcess["+(i+1)+"]: ");
         burst_time[i] = s.nextInt();;
         process[i]=i+1; //Process Number
+        s.close();
     }
  
     //Sorting
@@ -65,6 +68,7 @@ System.out.println("\n p"+process[i]+"\t\t "+burst_time[i]+"\t\t "+waiting_time[
 TAT_avg=(float)total/n;
 System.out.println("\n\nAverage Waiting Time: "+wait_avg);
 System.out.println("\nAverage Turnaround Time: "+TAT_avg);
+
  
 }
 }
