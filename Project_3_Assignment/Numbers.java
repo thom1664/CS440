@@ -1,14 +1,14 @@
 import java.util.*;
 
 public class Numbers {
-    Random randnum;
+    Random randNum;
 
     public Numbers() {
-        randnum = new Random();
-        randnum.setSeed(123456789);
+        randNum = new Random();
+        randNum.setSeed(123456789);
     }
 
     public int random(int i){
-        return randnum.nextInt(i);
+        return randNum.nextInt(i);
     }
 }
