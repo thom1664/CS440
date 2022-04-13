@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Random;
+import com.Test.*;
 
 public class Process extends OnePerson{
     private LinkedList<Integer> list = new LinkedList();
@@ -26,7 +27,9 @@ public class Process extends OnePerson{
     }
 
     public UseFacilities(int id, int gender, int time){
-
+        Random random = new Random();
+        Thread.sleep(random.nextInt(time));
+        
     }
 
     public void Depart(int id, int gender) throws InterruptedException {

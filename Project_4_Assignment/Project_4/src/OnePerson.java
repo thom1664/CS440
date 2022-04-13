@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class OnePerson{
     private int id;
     private int gender;
@@ -35,7 +33,7 @@ public class OnePerson{
         this.time = time;
     }
 
-    public String toString(){
+    public String toString(int gender){
         return "ID: " + id + " " + "Gender: " + gender + " " + "Time: " + time;
     }
 
