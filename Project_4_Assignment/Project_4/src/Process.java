@@ -12,6 +12,7 @@ public class Process extends OnePerson{
     }
 
     public void Arrive(int id, int gender) throws InterruptedException {
+        Random random = new Random();
         while(true){
             synchronized(lock){
                 while(list.size() == LIMIT){
@@ -20,6 +21,7 @@ public class Process extends OnePerson{
             }
             list.add(id++);
             lock.notify();
+            Thread.sleep(random.nextInt(1000));
         }
     }
 
@@ -40,6 +42,7 @@ public class Process extends OnePerson{
                 System.out.println("; ");
                 lock.notify();
             }
+            Thread.sleep(random.nextInt(1000));
         }
     }
 
