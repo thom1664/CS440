@@ -26,10 +26,9 @@ public class Process extends OnePerson{
         }
     }
 
-    public UseFacilities(int id, int gender, int time){
+    public void UseFacilities(int id, int gender, int time) throws InterruptedException{
         Random random = new Random();
         Thread.sleep(random.nextInt(time));
-        
     }
 
     public void Depart(int id, int gender) throws InterruptedException {
