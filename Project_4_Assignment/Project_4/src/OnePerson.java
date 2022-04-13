@@ -1,17 +1,32 @@
-public class OnePerson(int id, int gender, int time){
-    public Arrive(id, gender){
+import java.util.*;
 
+public class OnePerson{
+    private int id;
+    private int gender;
+    private int time;
+
+    public int getID(){
+        return id;
     }
 
-    public UseFacilities(id, gender, time){
-
+    public int getGender(){
+        return gender;
     }
 
-    public Depart(id, gender){
-
+    public int getTime(){
+        return time;
     }
 
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+    public void setID(int id){
+        this.id = id;
     }
+
+    public void setGender(int gender){
+        this.gender = gender;
+    }
+
+    public void setTime(int time){
+        this.time = time;
+    }
+
 }
