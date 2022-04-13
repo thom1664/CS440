@@ -5,6 +5,12 @@ public class OnePerson{
     private int gender;
     private int time;
 
+    public OnePerson(int id, int gender, int time){
+        this.id = id;
+        this.gender = gender;
+        this.time = time;
+    }
+
     public int getID(){
         return id;
     }
@@ -27,6 +33,10 @@ public class OnePerson{
 
     public void setTime(int time){
         this.time = time;
+    }
+
+    public String toString(){
+        return "ID: " + id + " " + "Gender: " + gender + " " + "Time: " + time;
     }
 
 }
