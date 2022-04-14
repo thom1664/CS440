@@ -26,16 +26,18 @@ public class Bathroom implements BathroomInterface{
 
     public void womenEnter(){
         lock.lock();
-        if(free_resources > 0 && menUsingN == 0){
-            womenUsingN++;
-            womenWaitingN--;
-            free_resources--;
-        }
-        else 
-            try{
-            womenWaitingQue.await();
-        }
-        catch(Exception e){
+        while(true){
+            if(free_resources > 0 && menUsingN == 0){
+                womenUsingN++;
+                womenWaitingN--;
+                free_resources--;
+            }
+            else 
+                try{
+                womenWaitingQue.await();
+            }
+            catch(Exception e){
+            }
         }
         lock.unlock();
     }
@@ -58,17 +60,20 @@ public class Bathroom implements BathroomInterface{
         menUsingN++;
         menWaitingN--;
         free_resources--;
-        if(free_resources > 0 && womenUsingN == 0){
-            try{
-                menWaitingQue.await();
-            }
-            catch(Exception e){
+        while(true){
+            if(free_resources > 0 && womenUsingN == 0){
+                try{
+                    menWaitingQue.await();
+                }
+                catch(Exception e){
+                }
             }
         }
     }
     public void manExit(){
         lock.lock();
         menUsingN--;
+        menWaitingN--;
         free_resources++;
         if(womenWaitingN > 0){
             try{
