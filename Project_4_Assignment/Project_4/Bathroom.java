@@ -3,7 +3,7 @@ import java.util.concurrent.locks.Lock;
 
 public interface BathroomInterface {
 
-    public static final int BATHROOM_SIZE = 3; //3 is just example
+    public static final int BATHROOM_SIZE = 7;
     void manExit();
     void manEnter();
     void womanEnter();
