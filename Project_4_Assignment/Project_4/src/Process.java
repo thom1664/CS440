@@ -49,6 +49,7 @@ public class Process extends OnePerson{
     }
 
     public static void main(String[] args) throws Exception {
-        OnePerson t = new OnePerson();
+        OnePerson t = new OnePerson(1,2,3);
+        System.out.print(t);
     }
 }
