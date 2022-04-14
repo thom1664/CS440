@@ -1,7 +1,8 @@
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-public interface BathroomInterface {
+interface BathroomInterface{
 
     public static final int BATHROOM_SIZE = 7;
     void manExit();
@@ -39,7 +40,6 @@ public class Bathroom implements BathroomInterface{
             catch(Exception e){
             }
         }
-        lock.unlock();
     }
     public void womenExit(){
         lock.lock();
@@ -83,6 +83,16 @@ public class Bathroom implements BathroomInterface{
             }
         }
         lock.unlock();
+    }
+    @Override
+    public void womanEnter() {
+        // TODO Auto-generated method stub
+        
+    }
+    @Override
+    public void womanExit() {
+        // TODO Auto-generated method stub
+        
     }
 }
 
