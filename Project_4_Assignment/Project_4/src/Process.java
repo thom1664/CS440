@@ -1,6 +1,5 @@
 import java.util.LinkedList;
 import java.util.Random;
-import com.Test.*;
 
 public class Process extends OnePerson{
     private LinkedList<Integer> list = new LinkedList();
@@ -46,6 +45,7 @@ public class Process extends OnePerson{
             }
             Thread.sleep(random.nextInt(1000));
         }
+        
     }
 
     public static void main(String[] args) throws Exception {
