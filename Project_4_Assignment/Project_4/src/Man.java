@@ -17,7 +17,7 @@ public class Man extends OnePerson{
         catch (InterruptedException interruptedException){
             interruptedException.printStackTrace();
         }
-        Bathroom.manEnter(this);
+        Bathroom.menEnter(this);
         System.out.print("Man " + this.getID() + " entered the bathroom.\n");
 
         try {
@@ -27,6 +27,6 @@ public class Man extends OnePerson{
 		}
 
         System.out.print("Man " + this.getID() + " left the bathroom.\n");
-        Bathroom.manExit(this);
+        Bathroom.menExit(this);
     }
 }

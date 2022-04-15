@@ -9,6 +9,7 @@ interface BathroomInterface{
     void manEnter();
     void womanEnter();
     void womanExit();
+    void menEnter();
 }
 
 public class Bathroom implements BathroomInterface{
@@ -55,7 +56,7 @@ public class Bathroom implements BathroomInterface{
         }
         lock.unlock();
     }
-    public void manEnter(){
+    public void menEnter(){
         lock.lock();
         menUsingN++;
         menWaitingN--;
@@ -71,7 +72,7 @@ public class Bathroom implements BathroomInterface{
             break;
         }
     }
-    public void manExit(){
+    public void menExit(){
         lock.lock();
         menUsingN--;
         free_resources++;
@@ -94,6 +95,16 @@ public class Bathroom implements BathroomInterface{
         // TODO Auto-generated method stub
         
     }
+    @Override
+    public void manEnter() {
+        // TODO Auto-generated method stub
+        
+    }
+    @Override
+    public void manExit() {
+        // TODO Auto-generated method stub
+        
+    }
     public static void womanEnter(Woman enteringWoman) {
 
     }
@@ -101,10 +112,10 @@ public class Bathroom implements BathroomInterface{
 
     }
     public static void menEnter(Man enteringMan){
-
+        ((BathroomInterface) enteringMan).menEnter();
     }
     public static void menExit(Man exitingMan){
-
+        ((BathroomInterface) exitingMan).menEnter();
     }
     
 }
