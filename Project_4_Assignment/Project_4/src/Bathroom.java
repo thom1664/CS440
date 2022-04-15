@@ -9,7 +9,7 @@ interface BathroomInterface{
     void manEnter();
     void womanEnter();
     void womanExit();
-    void menEnter();
+    
 }
 
 public class Bathroom implements BathroomInterface{
@@ -106,16 +106,16 @@ public class Bathroom implements BathroomInterface{
         
     }
     public static void womanEnter(Woman enteringWoman) {
-
+        ((BathroomInterface) enteringWoman).womanEnter();
     }
     public static void womenExit(Woman exitingWoman) {
-
+        ((BathroomInterface) exitingWoman).womanExit();
     }
     public static void menEnter(Man enteringMan){
-        ((BathroomInterface) enteringMan).menEnter();
+        ((BathroomInterface) enteringMan).manEnter();
     }
     public static void menExit(Man exitingMan){
-        ((BathroomInterface) exitingMan).menEnter();
+        ((BathroomInterface) exitingMan).manExit();
     }
     
 }
