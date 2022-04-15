@@ -94,5 +94,18 @@ public class Bathroom implements BathroomInterface{
         // TODO Auto-generated method stub
         
     }
+    public static void womanEnter(Woman enteringWoman) {
+
+    }
+    public static void womenExit(Woman exitingWoman) {
+
+    }
+    public static void menEnter(Man enteringMan){
+
+    }
+    public static void menExit(Man exitingMan){
+
+    }
+    
 }
 
