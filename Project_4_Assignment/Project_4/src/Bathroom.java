@@ -4,7 +4,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 interface BathroomInterface{
 
-    public static final int BATHROOM_SIZE = 7;
+    public static final int BATHROOM_SIZE = 5;
     void manExit();
     void manEnter();
     void womanEnter();
@@ -12,7 +12,7 @@ interface BathroomInterface{
 }
 
 public class Bathroom implements BathroomInterface{
-    private final int BATHROOM_CAPACITY = 10;
+    private final int BATHROOM_CAPACITY = 20;
     private int free_resources = BATHROOM_CAPACITY;
 
     private Lock lock = new ReentrantLock();
@@ -39,12 +39,12 @@ public class Bathroom implements BathroomInterface{
             }
             catch(Exception e){
             }
+            break;
         }
     }
     public void womenExit(){
         lock.lock();
         womenUsingN--;
-        womenWaitingN--;
         free_resources++;
         if(menWaitingN > 0){
             try{
@@ -68,12 +68,12 @@ public class Bathroom implements BathroomInterface{
                 catch(Exception e){
                 }
             }
+            break;
         }
     }
     public void manExit(){
         lock.lock();
         menUsingN--;
-        menWaitingN--;
         free_resources++;
         if(womenWaitingN > 0){
             try{
