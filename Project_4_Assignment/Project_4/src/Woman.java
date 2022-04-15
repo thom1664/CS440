@@ -17,7 +17,7 @@ public class Woman extends OnePerson {
             interruptedException.printStackTrace();
         }
         Bathroom.womanEnter(this);
-        System.out.print("Woman " + this.getID() + " entered the toilet.\n");
+        System.out.print("Woman " + this.getID() + " entered the bathroom.\n");
 
         try {
 			Thread.sleep((new Random()).nextInt(max_use_time * 1000));
